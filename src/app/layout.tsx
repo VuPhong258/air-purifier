@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ToastProvider } from "@/components/ui/ToastProvider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -65,7 +66,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
-        {children}
+        <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
   );
