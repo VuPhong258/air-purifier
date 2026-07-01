@@ -52,6 +52,7 @@ npm run build
 - Form validation: submit empty or invalid fields to see inline errors and an error toast.
 - Webhook forwarding: submit a valid form, then check the webhook.site inbox linked above for the JSON payload.
 - Analytics: open DevTools Console in development and click CTA buttons or submit the form to see `[analytics]` events. In production, events are pushed into `window.dataLayer`.
+- Chatbot bonus: click "Tư vấn nhanh" in the lower-left corner and try the suggested questions.
 
 ## Submission Checklist
 

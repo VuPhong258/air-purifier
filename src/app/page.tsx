@@ -1,4 +1,5 @@
 import { FeatureBento } from "@/components/landing/FeatureBento";
+import { ChatWidget } from "@/components/landing/ChatWidget";
 import { Footer } from "@/components/landing/Footer";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
@@ -17,6 +18,7 @@ export default function Home() {
         <SpecsSection />
         <NewsletterSection />
       </main>
+      <ChatWidget />
       <Footer />
     </>
   );
