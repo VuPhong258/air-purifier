@@ -2,6 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { navItems } from "@/lib/content";
 
 export function Header() {
@@ -33,10 +34,15 @@ export function Header() {
 
         <a
           href="#newsletter"
+          data-track="header_consultation"
           className="group hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_16px_45px_rgba(20,108,92,0.24)] active:scale-[0.98] md:flex"
         >
           Dat lich tu van
         </a>
+
+        <div className="hidden md:block">
+          <ThemeToggle />
+        </div>
 
         <button
           type="button"
@@ -61,6 +67,9 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <div className="mt-2 px-2">
+            <ThemeToggle />
+          </div>
         </div>
       ) : null}
     </header>

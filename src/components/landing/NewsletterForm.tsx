@@ -10,6 +10,7 @@ import {
   type NewsletterResponse,
 } from "@/lib/newsletter";
 import { useToast } from "@/components/ui/ToastProvider";
+import { trackEvent } from "@/lib/analytics";
 
 const initialValues: NewsletterInput = {
   fullName: "",
@@ -43,11 +44,13 @@ export function NewsletterForm() {
     if (!parsed.success) {
       const nextErrors = formatZodErrors(parsed.error);
       setErrors(nextErrors);
+      trackEvent("form_submit_error", { reason: "client_validation" });
       showToast("error", "Vui long kiem tra lai thong tin truoc khi gui.");
       return;
     }
 
     setIsSubmitting(true);
+    trackEvent("form_submit", { roomSize: parsed.data.roomSize });
 
     try {
       const response = await fetch("/api/newsletter", {
@@ -61,14 +64,22 @@ export function NewsletterForm() {
 
       if (!response.ok || !result.ok) {
         setErrors(result.errors ?? {});
+        trackEvent("form_submit_error", {
+          reason: "api_error",
+          status: response.status,
+        });
         showToast("error", result.message);
         return;
       }
 
+      trackEvent("form_submit_success", {
+        forwarded: Boolean(result.forwarded),
+      });
       showToast("success", result.message);
       setValues(initialValues);
       setErrors({});
     } catch {
+      trackEvent("form_submit_error", { reason: "network_error" });
       showToast("error", "Khong the gui thong tin. Vui long thu lai sau.");
     } finally {
       setIsSubmitting(false);
@@ -153,6 +164,7 @@ export function NewsletterForm() {
 
       <button
         type="submit"
+        data-track="newsletter_submit"
         disabled={isSubmitting}
         className="group inline-flex h-13 items-center justify-center gap-3 rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
       >

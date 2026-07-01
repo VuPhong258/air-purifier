@@ -28,6 +28,7 @@ export function Hero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
               href="#newsletter"
+              data-track="hero_newsletter"
               className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_24px_70px_rgba(20,108,92,0.26)] active:scale-[0.98]"
             >
               Nhan tu van som
@@ -37,6 +38,7 @@ export function Hero() {
             </a>
             <a
               href="#technology"
+              data-track="hero_technology"
               className="inline-flex h-14 items-center justify-center rounded-full border border-border bg-surface px-6 text-base font-semibold text-foreground transition-[background,transform] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-muted active:scale-[0.98]"
             >
               Xem cong nghe
