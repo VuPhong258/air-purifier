@@ -17,12 +17,12 @@ export function Hero() {
           </div>
 
           <h1 className="mt-7 max-w-5xl text-[clamp(3.1rem,8vw,6.9rem)] font-semibold leading-[0.95] text-foreground">
-            Khong khi sach hon, truoc khi ban nhan ra.
+            Không khí sạch hơn, trước khi bạn nhận ra.
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-            Pure Flow dung AI de doc chat luong khong khi, du doan muc o nhiem
-            va tu dong toi uu cong suat loc cho tung khoanh khac trong nha.
+            Pure Flow dùng AI để đọc chất lượng không khí, dự đoán mức ô nhiễm
+            và tự động tối ưu công suất lọc cho từng khoảnh khắc trong nhà.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -31,7 +31,7 @@ export function Hero() {
               data-track="hero_newsletter"
               className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_24px_70px_rgba(20,108,92,0.26)] active:scale-[0.98]"
             >
-              Nhan tu van som
+              Nhận tư vấn sớm
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
                 <ArrowRight size={16} />
               </span>
@@ -41,7 +41,7 @@ export function Hero() {
               data-track="hero_technology"
               className="inline-flex h-14 items-center justify-center rounded-full border border-border bg-surface px-6 text-base font-semibold text-foreground transition-[background,transform] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-surface-muted active:scale-[0.98]"
             >
-              Xem cong nghe
+              Xem công nghệ
             </a>
           </div>
         </Reveal>

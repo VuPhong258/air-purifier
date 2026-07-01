@@ -6,9 +6,9 @@ export function SpecsSection() {
     <section id="specs" className="px-4 py-20 sm:px-6 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-semibold text-primary">Thong so ky thuat</p>
+          <p className="text-sm font-semibold text-primary">Thông số kỹ thuật</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-            Du manh cho phong lon, du tinh te cho phong ngu.
+            Đủ mạnh cho phòng lớn, đủ tinh tế cho phòng ngủ.
           </h2>
         </Reveal>
 

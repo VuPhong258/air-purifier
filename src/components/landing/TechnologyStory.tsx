@@ -8,11 +8,11 @@ export function TechnologyStory() {
         <Reveal className="lg:sticky lg:top-28 lg:h-max">
           <p className="text-sm font-semibold text-primary">Clean intelligence</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
-            AI xu ly khong khi nhu mot he sinh thai nho.
+            AI xử lý không khí như một hệ sinh thái nhỏ.
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-8 text-muted">
-            Thay vi bat quat theo cap co dinh, Pure Flow ket hop du lieu cam
-            bien va ngu canh sinh hoat de giu phong on dinh hon.
+            Thay vì bật quạt theo cấp cố định, Pure Flow kết hợp dữ liệu cảm
+            biến và ngữ cảnh sinh hoạt để giữ phòng ổn định hơn.
           </p>
         </Reveal>
 
@@ -29,7 +29,7 @@ export function TechnologyStory() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-primary">
-                        Buoc {index + 1}
+                        Bước {index + 1}
                       </p>
                       <h3 className="mt-2 text-2xl font-semibold text-foreground">
                         {step.title}

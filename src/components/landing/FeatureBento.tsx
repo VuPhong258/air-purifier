@@ -6,9 +6,9 @@ export function FeatureBento() {
     <section id="features" className="px-4 py-20 sm:px-6 lg:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-semibold text-primary">Tinh nang noi bat</p>
+          <p className="text-sm font-semibold text-primary">Tính năng nổi bật</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-foreground sm:text-5xl lg:text-6xl">
-            Mot thiet bi im lang, nhung ra quyet dinh lien tuc.
+            Một thiết bị im lặng, nhưng ra quyết định liên tục.
           </h2>
         </Reveal>
 

@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     return NextResponse.json<NewsletterResponse>(
       {
         ok: false,
-        message: "Du lieu gui len khong dung dinh dang JSON.",
+        message: "Dữ liệu gửi lên không đúng định dạng JSON.",
       },
       { status: 400 },
     );
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     return NextResponse.json<NewsletterResponse>(
       {
         ok: false,
-        message: "Vui long kiem tra lai thong tin.",
+        message: "Vui lòng kiểm tra lại thông tin.",
         errors: formatZodErrors(parsed.error),
       },
       { status: 422 },
@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         return NextResponse.json<NewsletterResponse>(
           {
             ok: false,
-            message: "Webhook chua nhan duoc du lieu. Vui long thu lai sau.",
+            message: "Webhook chưa nhận được dữ liệu. Vui lòng thử lại sau.",
             forwarded: false,
           },
           { status: 502 },
@@ -66,14 +66,14 @@ export async function POST(request: Request) {
 
       return NextResponse.json<NewsletterResponse>({
         ok: true,
-        message: "Da gui thong tin tu van thanh cong.",
+        message: "Đã gửi thông tin tư vấn thành công.",
         forwarded: true,
       });
     } catch {
       return NextResponse.json<NewsletterResponse>(
         {
           ok: false,
-          message: "Khong the ket noi webhook. Vui long thu lai sau.",
+          message: "Không thể kết nối webhook. Vui lòng thử lại sau.",
           forwarded: false,
         },
         { status: 502 },
@@ -84,7 +84,7 @@ export async function POST(request: Request) {
   return NextResponse.json<NewsletterResponse>({
     ok: true,
     message:
-      "Da xac thuc thong tin thanh cong. Them WEBHOOK_URL de forward du lieu.",
+      "Đã xác thực thông tin thành công. Thêm WEBHOOK_URL để forward dữ liệu.",
     forwarded: false,
   });
 }

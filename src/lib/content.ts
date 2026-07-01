@@ -11,89 +11,89 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "Tinh nang", href: "#features" },
-  { label: "Cong nghe", href: "#technology" },
-  { label: "Thong so", href: "#specs" },
-  { label: "Tu van", href: "#newsletter" },
+  { label: "Tính năng", href: "#features" },
+  { label: "Công nghệ", href: "#technology" },
+  { label: "Thông số", href: "#specs" },
+  { label: "Tư vấn", href: "#newsletter" },
 ];
 
 export const metrics = [
-  { value: "8 phut", label: "lam sach phong 25m2" },
-  { value: "99.97%", label: "loc hat sieu min" },
-  { value: "22 dB", label: "che do ngu yen tinh" },
+  { value: "8 phút", label: "làm sạch phòng 25m²" },
+  { value: "99.97%", label: "lọc hạt siêu mịn" },
+  { value: "22 dB", label: "chế độ ngủ yên tĩnh" },
 ];
 
 export const features = [
   {
     title: "AI AirSense",
     description:
-      "Cam bien doc PM2.5, VOC va do am theo thoi gian thuc de tu dong dieu chinh luong gio.",
+      "Cảm biến đọc PM2.5, VOC và độ ẩm theo thời gian thực để tự động điều chỉnh lượng gió.",
     icon: Activity,
   },
   {
     title: "Clean Flow Mapping",
     description:
-      "Mo phong dong khi trong phong, giup may phan phoi khong khi sach dong deu hon.",
+      "Mô phỏng dòng khí trong phòng, giúp máy phân phối không khí sạch đồng đều hơn.",
     icon: Wind,
   },
   {
     title: "Quiet Sleep",
     description:
-      "Giam tieng on va anh sang man hinh khi phong toi, giu giac ngu khong bi cat ngang.",
+      "Giảm tiếng ồn và ánh sáng màn hình khi phòng tối, giữ giấc ngủ không bị cắt ngang.",
     icon: Moon,
   },
   {
     title: "Smart Filter Care",
     description:
-      "Du bao tuoi tho bo loc dua tren muc do o nhiem that, khong chi dua vao thoi gian.",
+      "Dự báo tuổi thọ bộ lọc dựa trên mức độ ô nhiễm thật, không chỉ dựa vào thời gian.",
     icon: ShieldCheck,
   },
 ];
 
 export const storySteps = [
   {
-    title: "Doc chat luong khong khi",
+    title: "Đọc chất lượng không khí",
     description:
-      "Pure Flow lien tuc lay mau bui min, mui, do am va nhiet do trong phong.",
+      "Pure Flow liên tục lấy mẫu bụi mịn, mùi, độ ẩm và nhiệt độ trong phòng.",
     icon: Gauge,
   },
   {
-    title: "AI chon che do loc",
+    title: "AI chọn chế độ lọc",
     description:
-      "Thuat toan du doan nhu cau lam sach trong 30 phut tiep theo va toi uu cong suat.",
+      "Thuật toán dự đoán nhu cầu làm sạch trong 30 phút tiếp theo và tối ưu công suất.",
     icon: Sparkles,
   },
   {
-    title: "Tra lai khong gian de tho",
+    title: "Trả lại không gian dễ thở",
     description:
-      "Dong khi sach duoc day len theo vong xoay mem, giam vung tu dong quanh can phong.",
+      "Dòng khí sạch được đẩy lên theo vòng xoáy mềm, giảm vùng tù đọng quanh cạnh phòng.",
     icon: Leaf,
   },
 ];
 
 export const specs = [
-  { label: "Bo loc", value: "HEPA H13 + than hoat tinh" },
-  { label: "Dien tich khuyen nghi", value: "20-45m2" },
-  { label: "Cam bien", value: "PM2.5, VOC, nhiet do, do am" },
-  { label: "Do on", value: "22-52 dB" },
-  { label: "Ket noi", value: "Wi-Fi 2.4GHz, ung dung mobile" },
-  { label: "Cong suat", value: "6-42W tuy che do" },
+  { label: "Bộ lọc", value: "HEPA H13 + than hoạt tính" },
+  { label: "Diện tích khuyến nghị", value: "20-45m²" },
+  { label: "Cảm biến", value: "PM2.5, VOC, nhiệt độ, độ ẩm" },
+  { label: "Độ ồn", value: "22-52 dB" },
+  { label: "Kết nối", value: "Wi-Fi 2.4GHz, ứng dụng mobile" },
+  { label: "Công suất", value: "6-42W tùy chế độ" },
 ];
 
 export const productModes = [
   {
     name: "Auto",
-    detail: "AI tu can bang toc do quat va muc tieu tiet kiem dien.",
+    detail: "AI tự cân bằng tốc độ quạt và mục tiêu tiết kiệm điện.",
     icon: Zap,
   },
   {
     name: "Focus",
-    detail: "Tang loc nhanh khi nau an, don nha hoac phong vua dong nguoi.",
+    detail: "Tăng lọc nhanh khi nấu ăn, dọn nhà hoặc phòng vừa đông người.",
     icon: AppWindow,
   },
   {
     name: "Sleep",
-    detail: "Giu khong khi sach trong dem voi am thanh gan nhu khong nhan ra.",
+    detail: "Giữ không khí sạch trong đêm với âm thanh gần như không nhận ra.",
     icon: Moon,
   },
 ];

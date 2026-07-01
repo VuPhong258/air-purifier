@@ -50,11 +50,11 @@ export default function OpenGraphImage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
             <div style={{ fontSize: 76, fontWeight: 800, lineHeight: 1.02 }}>
-              May loc khong khi AI cho nha hien dai
+              Máy lọc không khí AI cho nhà hiện đại
             </div>
             <div style={{ color: "#4f675d", fontSize: 30, lineHeight: 1.4 }}>
-              Theo doi PM2.5, tu dong toi uu cong suat loc va bao ve khong
-              gian song moi ngay.
+              Theo dõi PM2.5, tự động tối ưu công suất lọc và bảo vệ không
+              gian sống mỗi ngày.
             </div>
           </div>
           <div style={{ color: "#146c5c", fontSize: 26, fontWeight: 700 }}>

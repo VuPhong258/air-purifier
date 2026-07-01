@@ -45,7 +45,7 @@ export function NewsletterForm() {
       const nextErrors = formatZodErrors(parsed.error);
       setErrors(nextErrors);
       trackEvent("form_submit_error", { reason: "client_validation" });
-      showToast("error", "Vui long kiem tra lai thong tin truoc khi gui.");
+      showToast("error", "Vui lòng kiểm tra lại thông tin trước khi gửi.");
       return;
     }
 
@@ -80,7 +80,7 @@ export function NewsletterForm() {
       setErrors({});
     } catch {
       trackEvent("form_submit_error", { reason: "network_error" });
-      showToast("error", "Khong the gui thong tin. Vui long thu lai sau.");
+      showToast("error", "Không thể gửi thông tin. Vui lòng thử lại sau.");
     } finally {
       setIsSubmitting(false);
     }
@@ -95,9 +95,9 @@ export function NewsletterForm() {
       <div className="grid gap-3 sm:grid-cols-2">
         <FieldError message={errors.fullName}>
           <input
-            aria-label="Ho va ten"
+            aria-label="Họ và tên"
             aria-invalid={Boolean(errors.fullName)}
-            placeholder="Ho va ten"
+            placeholder="Họ và tên"
             value={values.fullName}
             onChange={(event) => updateField("fullName", event.target.value)}
             className="h-12 w-full rounded-2xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
@@ -119,9 +119,9 @@ export function NewsletterForm() {
       <div className="grid gap-3 sm:grid-cols-2">
         <FieldError message={errors.phone}>
           <input
-            aria-label="So dien thoai"
+            aria-label="Số điện thoại"
             aria-invalid={Boolean(errors.phone)}
-            placeholder="So dien thoai"
+            placeholder="Số điện thoại"
             inputMode="tel"
             value={values.phone}
             onChange={(event) => updateField("phone", event.target.value)}
@@ -130,7 +130,7 @@ export function NewsletterForm() {
         </FieldError>
         <FieldError message={errors.roomSize}>
           <select
-            aria-label="Dien tich phong"
+            aria-label="Diện tích phòng"
             aria-invalid={Boolean(errors.roomSize)}
             value={values.roomSize}
             onChange={(event) =>
@@ -152,9 +152,9 @@ export function NewsletterForm() {
 
       <FieldError message={errors.message}>
         <textarea
-          aria-label="Nhu cau tu van"
+          aria-label="Nhu cầu tư vấn"
           aria-invalid={Boolean(errors.message)}
-          placeholder="Nhu cau tu van"
+          placeholder="Nhu cầu tư vấn"
           rows={4}
           value={values.message}
           onChange={(event) => updateField("message", event.target.value)}
@@ -168,7 +168,7 @@ export function NewsletterForm() {
         disabled={isSubmitting}
         className="group inline-flex h-13 items-center justify-center gap-3 rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {isSubmitting ? "Dang gui" : "Gui thong tin"}
+        {isSubmitting ? "Đang gửi" : "Gửi thông tin"}
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-background/12 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
           {isSubmitting ? (
             <Loader2 size={15} className="animate-spin" />

@@ -3,37 +3,37 @@ import { z } from "zod";
 export const roomSizeOptions = ["under-20", "20-40", "over-40"] as const;
 
 export const roomSizeLabels: Record<(typeof roomSizeOptions)[number], string> = {
-  "under-20": "Duoi 20m2",
-  "20-40": "20-40m2",
-  "over-40": "Tren 40m2",
+  "under-20": "Dưới 20m²",
+  "20-40": "20-40m²",
+  "over-40": "Trên 40m²",
 };
 
 export const newsletterSchema = z.object({
   fullName: z
     .string()
     .trim()
-    .min(2, "Vui long nhap ho va ten toi thieu 2 ky tu.")
-    .max(80, "Ho va ten khong vuot qua 80 ky tu."),
+    .min(2, "Vui lòng nhập họ và tên tối thiểu 2 ký tự.")
+    .max(80, "Họ và tên không vượt quá 80 ký tự."),
   email: z
     .string()
     .trim()
-    .email("Email khong hop le.")
-    .max(120, "Email khong vuot qua 120 ky tu."),
+    .email("Email không hợp lệ.")
+    .max(120, "Email không vượt quá 120 ký tự."),
   phone: z
     .string()
     .trim()
     .regex(
       /^(0|\+84)(\d[\s.-]?){8,10}$/,
-      "So dien thoai Viet Nam khong hop le.",
+      "Số điện thoại Việt Nam không hợp lệ.",
     ),
   roomSize: z.enum(roomSizeOptions, {
-    error: "Vui long chon dien tich phong.",
+    error: "Vui lòng chọn diện tích phòng.",
   }),
   message: z
     .string()
     .trim()
-    .min(10, "Nhu cau tu van can toi thieu 10 ky tu.")
-    .max(600, "Nhu cau tu van khong vuot qua 600 ky tu."),
+    .min(10, "Nhu cầu tư vấn cần tối thiểu 10 ký tự.")
+    .max(600, "Nhu cầu tư vấn không vượt quá 600 ký tự."),
 });
 
 export type NewsletterInput = z.infer<typeof newsletterSchema>;

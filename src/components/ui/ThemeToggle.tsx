@@ -40,7 +40,7 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label={theme === "dark" ? "Chuyen sang giao dien sang" : "Chuyen sang giao dien toi"}
+      aria-label={theme === "dark" ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"}
       onClick={toggleTheme}
       className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-muted text-foreground transition-[transform,background] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-border active:scale-[0.96]"
     >

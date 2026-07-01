@@ -5,14 +5,14 @@ export function ProductVisual() {
   return (
     <div className="relative mx-auto w-full max-w-[520px] lg:max-w-[600px]">
       <div className="absolute -left-5 top-20 hidden rounded-full border border-border bg-surface/90 px-4 py-3 shadow-[0_18px_55px_rgba(20,108,92,0.14)] backdrop-blur-xl sm:block">
-        <p className="text-xs font-medium text-muted">PM2.5 hien tai</p>
+        <p className="text-xs font-medium text-muted">PM2.5 hiện tại</p>
         <p className="mt-1 text-2xl font-semibold text-foreground">
           08 <span className="text-sm text-muted">ug/m3</span>
         </p>
       </div>
 
       <div className="absolute -right-3 bottom-16 z-10 hidden rounded-full border border-border bg-surface/90 px-4 py-3 shadow-[0_18px_55px_rgba(20,108,92,0.14)] backdrop-blur-xl sm:block">
-        <p className="text-xs font-medium text-muted">AI dang toi uu</p>
+        <p className="text-xs font-medium text-muted">AI đang tối ưu</p>
         <p className="mt-1 text-sm font-semibold text-primary">Silent Clean</p>
       </div>
 
@@ -20,7 +20,7 @@ export function ProductVisual() {
         <div className="relative overflow-hidden rounded-[calc(2rem-0.5rem)] bg-surface">
           <Image
             src="/images/pure-flow-hero.webp"
-            alt="May loc khong khi AI Pure Flow trong khong gian song sang"
+            alt="Máy lọc không khí AI Pure Flow trong không gian sống sang"
             width={933}
             height={1400}
             priority

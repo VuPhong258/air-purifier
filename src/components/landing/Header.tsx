@@ -37,7 +37,7 @@ export function Header() {
           data-track="header_consultation"
           className="group hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_16px_45px_rgba(20,108,92,0.24)] active:scale-[0.98] md:flex"
         >
-          Dat lich tu van
+          Đặt lịch tư vấn
         </a>
 
         <div className="hidden md:block">
@@ -46,7 +46,7 @@ export function Header() {
 
         <button
           type="button"
-          aria-label={isOpen ? "Dong menu" : "Mo menu"}
+          aria-label={isOpen ? "Đóng menu" : "Mở menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
           className="relative flex h-10 w-10 items-center justify-center rounded-full bg-surface-muted text-foreground transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.96] md:hidden"
