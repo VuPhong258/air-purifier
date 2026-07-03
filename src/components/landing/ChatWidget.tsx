@@ -83,9 +83,9 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-4 left-4 z-40 sm:bottom-5 sm:left-5">
+    <div className="fixed bottom-4 right-4 z-40 sm:bottom-5 sm:right-5">
       {isOpen ? (
-        <section className="mb-3 w-[calc(100vw-2rem)] max-w-[360px] overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-[0_28px_90px_rgba(20,108,92,0.22)]">
+        <section className="mb-3 w-[calc(100vw-2rem)] max-w-[340px] overflow-hidden rounded-[1.75rem] border border-border bg-surface shadow-[0_28px_90px_rgba(20,108,92,0.22)]">
           <header className="flex items-center justify-between border-b border-border bg-surface-muted px-4 py-3">
             <div className="flex items-center gap-3">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -171,7 +171,7 @@ export function ChatWidget() {
         type="button"
         aria-label="Mở chatbot tư vấn"
         onClick={toggleOpen}
-        className="group flex h-14 items-center gap-3 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-[0_18px_55px_rgba(20,108,92,0.24)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 active:scale-[0.98]"
+        className="group flex h-12 items-center gap-2.5 rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-[0_18px_55px_rgba(20,108,92,0.24)] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-0.5 active:scale-[0.98] sm:h-13 sm:px-5"
       >
         <MessageCircle size={19} />
         Tư vấn nhanh

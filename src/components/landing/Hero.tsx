@@ -6,26 +6,26 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-dvh snap-start scroll-mt-0 items-center overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:pb-28 lg:pt-32"
+      className="relative flex min-h-dvh snap-start scroll-mt-0 items-center overflow-hidden px-4 pb-14 pt-24 sm:px-6 lg:pb-16 lg:pt-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_76%_18%,rgba(216,243,107,0.24),transparent_28%),radial-gradient(circle_at_18%_32%,rgba(47,185,160,0.16),transparent_30%)]" />
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1fr_0.92fr]">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[0.98fr_0.86fr] xl:gap-12">
         <Reveal className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-muted shadow-[0_10px_40px_rgba(20,108,92,0.08)]">
             <ShieldCheck size={14} className="text-primary" />
             AI air quality system for healthier living
           </div>
 
-          <h1 className="mt-7 max-w-5xl text-[clamp(3.1rem,8vw,6.9rem)] font-semibold leading-[0.95] text-foreground">
+          <h1 className="mt-6 max-w-3xl text-[clamp(2.6rem,4.8vw,4.8rem)] font-semibold leading-[1] text-foreground">
             Không khí sạch hơn, trước khi bạn nhận ra.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+          <p className="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
             Pure Flow dùng AI để đọc chất lượng không khí, dự đoán mức ô nhiễm
             và tự động tối ưu công suất lọc cho từng khoảnh khắc trong nhà.
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               href="#newsletter"
               data-track="hero_newsletter"
