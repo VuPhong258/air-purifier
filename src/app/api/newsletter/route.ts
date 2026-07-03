@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { forwardToGoogleSheets } from "@/lib/google-sheets";
 import {
   formatZodErrors,
   newsletterSchema,
@@ -41,50 +42,33 @@ export async function POST(request: Request) {
     submittedAt: new Date().toISOString(),
   };
 
-  const webhookUrl = process.env.WEBHOOK_URL;
+  const webAppUrl = process.env.GOOGLE_SHEETS_WEB_APP_URL;
 
-  if (webhookUrl) {
-    try {
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+  if (!webAppUrl) {
+    return NextResponse.json<NewsletterResponse>({
+      ok: true,
+      message:
+        "Đã xác thực thông tin thành công. Thêm GOOGLE_SHEETS_WEB_APP_URL để lưu vào Google Sheets.",
+      forwarded: false,
+    });
+  }
 
-      if (!response.ok) {
-        return NextResponse.json<NewsletterResponse>(
-          {
-            ok: false,
-            message: "Webhook chưa nhận được dữ liệu. Vui lòng thử lại sau.",
-            forwarded: false,
-          },
-          { status: 502 },
-        );
-      }
+  const result = await forwardToGoogleSheets(payload);
 
-      return NextResponse.json<NewsletterResponse>({
-        ok: true,
-        message: "Đã gửi thông tin tư vấn thành công.",
-        forwarded: true,
-      });
-    } catch {
-      return NextResponse.json<NewsletterResponse>(
-        {
-          ok: false,
-          message: "Không thể kết nối webhook. Vui lòng thử lại sau.",
-          forwarded: false,
-        },
-        { status: 502 },
-      );
-    }
+  if (!result.ok) {
+    return NextResponse.json<NewsletterResponse>(
+      {
+        ok: false,
+        message: result.message,
+        forwarded: false,
+      },
+      { status: 502 },
+    );
   }
 
   return NextResponse.json<NewsletterResponse>({
     ok: true,
-    message:
-      "Đã xác thực thông tin thành công. Thêm WEBHOOK_URL để forward dữ liệu.",
-    forwarded: false,
+    message: "Đã gửi thông tin tư vấn thành công.",
+    forwarded: true,
   });
 }

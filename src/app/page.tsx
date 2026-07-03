@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <main
         data-scroll-container
-        className="relative h-dvh w-full snap-y snap-proximity overflow-y-auto overflow-x-hidden scroll-smooth"
+        className="relative w-full overflow-x-hidden"
       >
         <Hero />
         <FeatureBento />

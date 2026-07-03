@@ -5,6 +5,8 @@ import { ToastProvider } from "@/components/ui/ToastProvider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
+const themeInitScript = `(function(){try{var s=localStorage.getItem("pure-flow-theme");var t=s==="dark"||s==="light"?s:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";if(t==="dark")document.documentElement.classList.add("dark")}catch(e){}})();`;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -67,7 +69,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-background text-foreground">
+      <body
+        className="min-h-full bg-background text-foreground"
+        suppressHydrationWarning
+      >
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <ToastProvider>
           <AnalyticsTracker />
           {children}

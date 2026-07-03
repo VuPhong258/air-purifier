@@ -89,7 +89,7 @@ export function NewsletterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="grid gap-4 rounded-[1.5rem] bg-primary-foreground p-4 text-foreground sm:p-5"
+      className="grid gap-3.5 rounded-xl bg-primary-foreground p-4 text-foreground sm:p-5"
       noValidate
     >
       <div className="grid gap-3 sm:grid-cols-2">
@@ -100,7 +100,7 @@ export function NewsletterForm() {
             placeholder="Họ và tên"
             value={values.fullName}
             onChange={(event) => updateField("fullName", event.target.value)}
-            className="h-12 w-full rounded-2xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
+            className="h-11 w-full rounded-xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
           />
         </FieldError>
         <FieldError message={errors.email}>
@@ -111,7 +111,7 @@ export function NewsletterForm() {
             type="email"
             value={values.email}
             onChange={(event) => updateField("email", event.target.value)}
-            className="h-12 w-full rounded-2xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
+            className="h-11 w-full rounded-xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
           />
         </FieldError>
       </div>
@@ -125,7 +125,7 @@ export function NewsletterForm() {
             inputMode="tel"
             value={values.phone}
             onChange={(event) => updateField("phone", event.target.value)}
-            className="h-12 w-full rounded-2xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
+            className="h-11 w-full rounded-xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
           />
         </FieldError>
         <FieldError message={errors.roomSize}>
@@ -139,7 +139,7 @@ export function NewsletterForm() {
                 event.target.value as NewsletterInput["roomSize"],
               )
             }
-            className="h-12 w-full rounded-2xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
+            className="h-11 w-full rounded-xl border border-border bg-surface px-4 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
           >
             {Object.entries(roomSizeLabels).map(([value, label]) => (
               <option key={value} value={value}>
@@ -158,7 +158,7 @@ export function NewsletterForm() {
           rows={4}
           value={values.message}
           onChange={(event) => updateField("message", event.target.value)}
-          className="w-full resize-none rounded-2xl border border-border bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
+          className="w-full resize-none rounded-xl border border-border bg-surface px-4 py-3 text-sm outline-none transition-shadow focus:shadow-[0_0_0_4px_rgba(47,185,160,0.18)]"
         />
       </FieldError>
 
@@ -166,7 +166,7 @@ export function NewsletterForm() {
         type="submit"
         data-track="newsletter_submit"
         disabled={isSubmitting}
-        className="group inline-flex h-13 items-center justify-center gap-3 rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+        className="group inline-flex h-11 items-center justify-center gap-2.5 rounded-full bg-foreground px-5 text-sm font-semibold text-background transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {isSubmitting ? "Đang gửi" : "Gửi thông tin"}
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-background/12 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">

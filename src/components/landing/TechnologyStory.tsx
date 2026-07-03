@@ -5,39 +5,39 @@ export function TechnologyStory() {
   return (
     <section
       id="technology"
-      className="flex min-h-dvh snap-start scroll-mt-24 items-center px-4 py-20 sm:px-6 lg:py-28"
+      className="scroll-mt-20 px-4 py-16 sm:px-6 lg:py-20"
     >
-      <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.85fr_1fr]">
-        <Reveal className="lg:sticky lg:top-28 lg:h-max">
-          <p className="text-sm font-semibold text-primary">Clean intelligence</p>
-          <h2 className="mt-4 text-4xl font-semibold leading-tight text-foreground sm:text-5xl">
+      <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[0.85fr_1fr]">
+        <Reveal className="lg:sticky lg:top-24 lg:h-max">
+          <p className="text-xs font-semibold text-primary">Clean intelligence</p>
+          <h2 className="mt-3 text-2xl font-semibold leading-snug text-foreground sm:text-3xl lg:text-4xl">
             AI xử lý không khí như một hệ sinh thái nhỏ.
           </h2>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-muted">
+          <p className="mt-4 max-w-lg text-sm leading-7 text-muted sm:text-base">
             Thay vì bật quạt theo cấp cố định, Pure Flow kết hợp dữ liệu cảm
             biến và ngữ cảnh sinh hoạt để giữ phòng ổn định hơn.
           </p>
         </Reveal>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {storySteps.map((step, index) => {
             const Icon = step.icon;
 
             return (
               <Reveal key={step.title} delay={index * 90}>
-                <article className="rounded-[2rem] border border-border bg-surface p-2">
-                  <div className="grid gap-6 rounded-[calc(2rem-0.5rem)] bg-surface-muted p-6 sm:grid-cols-[auto_1fr] sm:p-8">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                      <Icon size={24} strokeWidth={1.8} />
+                <article className="rounded-2xl border border-border bg-surface p-1.5">
+                  <div className="grid gap-4 rounded-[calc(1rem-0.125rem)] bg-surface-muted p-5 sm:grid-cols-[auto_1fr] sm:p-6">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                      <Icon size={20} strokeWidth={1.8} />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-primary">
+                      <p className="text-xs font-semibold text-primary">
                         Bước {index + 1}
                       </p>
-                      <h3 className="mt-2 text-2xl font-semibold text-foreground">
+                      <h3 className="mt-1 text-lg font-semibold text-foreground">
                         {step.title}
                       </h3>
-                      <p className="mt-4 text-base leading-7 text-muted">
+                      <p className="mt-2 text-sm leading-6 text-muted">
                         {step.description}
                       </p>
                     </div>

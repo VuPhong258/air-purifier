@@ -22,29 +22,37 @@ function getPreferredTheme(): Theme {
     : "light";
 }
 
-export function ThemeToggle() {
+function applyTheme(theme: Theme) {
+  document.documentElement.classList.toggle("dark", theme === "dark");
+}
+
+export function ThemeToggle({ className = "" }: { className?: string }) {
   const [theme, setTheme] = useState<Theme>(() => getPreferredTheme());
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    applyTheme(theme);
   }, [theme]);
 
   function toggleTheme() {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
-    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    applyTheme(nextTheme);
     window.localStorage.setItem("pure-flow-theme", nextTheme);
     trackEvent("theme_change", { theme: nextTheme });
   }
 
+  const isDark = theme === "dark";
+
   return (
     <button
       type="button"
-      aria-label={theme === "dark" ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"}
+      aria-label={
+        isDark ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"
+      }
       onClick={toggleTheme}
-      className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-muted text-foreground transition-[transform,background] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-border active:scale-[0.96]"
+      className={`flex h-8 w-8 items-center justify-center rounded-full bg-surface-muted text-foreground transition-[transform,background] duration-300 hover:bg-border active:scale-[0.96] ${className}`}
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      {isDark ? <Sun size={15} /> : <Moon size={15} />}
     </button>
   );
 }
