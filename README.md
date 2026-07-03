@@ -130,10 +130,3 @@ Feature branches used during development:
 - `feat/chatbot-widget`
 
 Main production work is merged into `main`.
-
-## Submission Checklist
-
-- Public GitHub repository.
-- Production landing page URL.
-- Google PageSpeed Insights screenshot.
-- Proof of dark mode, animations, chatbot, analytics, and Google Sheets form intake.
