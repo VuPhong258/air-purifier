@@ -43,7 +43,7 @@
   --color-muted: var(--muted);
   --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
@@ -60,6 +60,26 @@ html {
 
 ::selection {
   background: color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll {
+    animation: reveal-fade-up 0.55s cubic-bezier(0.32, 0.72, 0, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 18%;
+  }
+}
+
+@keyframes reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

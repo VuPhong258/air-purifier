@@ -23,8 +23,7 @@ export function ProductVisual() {
             alt="Máy lọc không khí AI Pure Flow trong không gian sống sang"
             width={933}
             height={1400}
-            priority
-            sizes="(max-width: 768px) 92vw, 42vw"
+            sizes="(max-width: 1023px) 92vw, 42vw"
             className="aspect-[4/5] w-full object-cover object-center"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface via-surface/80 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-4 sm:pt-12">

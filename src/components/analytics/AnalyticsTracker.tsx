@@ -29,67 +29,91 @@ export function AnalyticsTracker() {
       });
     }
 
-    document.addEventListener("click", handleClick);
+    document.addEventListener("click", handleClick, { passive: true });
 
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
   useEffect(() => {
-    const observed = new Set<number>();
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) {
-            continue;
+    function setupScrollDepth() {
+      if (cancelled) {
+        return;
+      }
+
+      const observed = new Set<number>();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) {
+              continue;
+            }
+
+            const depth = Number(
+              (entry.target as HTMLElement).dataset.scrollDepth,
+            );
+
+            if (!observed.has(depth)) {
+              observed.add(depth);
+              trackEvent("scroll_depth", { depth });
+            }
           }
-
-          const depth = Number(
-            (entry.target as HTMLElement).dataset.scrollDepth,
-          );
-
-          if (!observed.has(depth)) {
-            observed.add(depth);
-            trackEvent("scroll_depth", { depth });
-          }
-        }
-      },
-      { threshold: 0.01 },
-    );
-
-    const sentinels = scrollDepths.map((depth) => {
-      const marker = document.createElement("div");
-      marker.dataset.scrollDepth = String(depth);
-      marker.setAttribute("aria-hidden", "true");
-      marker.style.position = "absolute";
-      marker.style.left = "0";
-      marker.style.width = "1px";
-      marker.style.height = "1px";
-      marker.style.pointerEvents = "none";
-      document.body.appendChild(marker);
-      observer.observe(marker);
-      return marker;
-    });
-
-    function positionSentinels() {
-      const trackHeight = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        window.innerHeight,
+        },
+        { threshold: 0.01 },
       );
 
-      sentinels.forEach((sentinel) => {
-        const depth = Number(sentinel.dataset.scrollDepth);
-        sentinel.style.top = `${Math.round((trackHeight * depth) / 100)}px`;
+      const sentinels = scrollDepths.map((depth) => {
+        const marker = document.createElement("div");
+        marker.dataset.scrollDepth = String(depth);
+        marker.setAttribute("aria-hidden", "true");
+        marker.style.position = "absolute";
+        marker.style.left = "0";
+        marker.style.width = "1px";
+        marker.style.height = "1px";
+        marker.style.pointerEvents = "none";
+        document.body.appendChild(marker);
+        observer.observe(marker);
+        return marker;
       });
+
+      function positionSentinels() {
+        const trackHeight = Math.max(
+          document.documentElement.scrollHeight - window.innerHeight,
+          window.innerHeight,
+        );
+
+        sentinels.forEach((sentinel) => {
+          const depth = Number(sentinel.dataset.scrollDepth);
+          sentinel.style.top = `${Math.round((trackHeight * depth) / 100)}px`;
+        });
+      }
+
+      positionSentinels();
+      window.addEventListener("resize", positionSentinels, { passive: true });
+
+      cleanup = () => {
+        window.removeEventListener("resize", positionSentinels);
+        observer.disconnect();
+        sentinels.forEach((sentinel) => sentinel.remove());
+      };
     }
 
-    positionSentinels();
-    window.addEventListener("resize", positionSentinels);
+    const useIdleCallback = typeof window.requestIdleCallback === "function";
+    const idleId = useIdleCallback
+      ? window.requestIdleCallback(setupScrollDepth, { timeout: 3000 })
+      : window.setTimeout(setupScrollDepth, 1500);
 
     return () => {
-      window.removeEventListener("resize", positionSentinels);
-      observer.disconnect();
-      sentinels.forEach((sentinel) => sentinel.remove());
+      cancelled = true;
+      cleanup?.();
+      if (useIdleCallback) {
+        window.cancelIdleCallback(idleId as number);
+      } else {
+        window.clearTimeout(idleId as number);
+      }
     };
   }, []);
 

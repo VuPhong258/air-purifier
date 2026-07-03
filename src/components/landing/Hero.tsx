@@ -1,6 +1,5 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { ProductVisual } from "./ProductVisual";
-import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
@@ -10,7 +9,7 @@ export function Hero() {
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_76%_18%,rgba(216,243,107,0.24),transparent_28%),radial-gradient(circle_at_18%_32%,rgba(47,185,160,0.16),transparent_30%)]" />
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[0.98fr_0.86fr] xl:gap-12">
-        <Reveal className="max-w-3xl">
+        <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-muted shadow-[0_10px_40px_rgba(20,108,92,0.08)]">
             <ShieldCheck size={14} className="text-primary" />
             AI air quality system for healthier living
@@ -44,11 +43,9 @@ export function Hero() {
               Xem công nghệ
             </a>
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal delay={120}>
-          <ProductVisual />
-        </Reveal>
+        <ProductVisual />
       </div>
     </section>
   );
