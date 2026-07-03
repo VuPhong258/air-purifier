@@ -3,7 +3,10 @@ import { Reveal } from "./Reveal";
 
 export function NewsletterSection() {
   return (
-    <section id="newsletter" className="px-4 py-20 sm:px-6 lg:py-28">
+    <section
+      id="newsletter"
+      className="flex min-h-dvh snap-start scroll-mt-24 items-center px-4 py-20 sm:px-6 lg:py-28"
+    >
       <Reveal>
         <div className="mx-auto max-w-7xl rounded-[2.2rem] border border-border bg-surface-muted p-2">
           <div className="grid gap-10 rounded-[calc(2.2rem-0.5rem)] bg-primary p-6 text-primary-foreground sm:p-8 lg:grid-cols-[0.85fr_1fr] lg:p-12">

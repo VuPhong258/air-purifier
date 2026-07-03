@@ -37,7 +37,7 @@ export function Header() {
           data-track="header_consultation"
           className="group hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_16px_45px_rgba(20,108,92,0.24)] active:scale-[0.98] md:flex"
         >
-          Đặt lịch tư vấn
+          Nhận tư vấn
         </a>
 
         <div className="hidden md:block">

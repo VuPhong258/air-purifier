@@ -3,8 +3,11 @@ import { Reveal } from "./Reveal";
 
 export function TechnologyStory() {
   return (
-    <section id="technology" className="px-4 py-20 sm:px-6 lg:py-28">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1fr]">
+    <section
+      id="technology"
+      className="flex min-h-dvh snap-start scroll-mt-24 items-center px-4 py-20 sm:px-6 lg:py-28"
+    >
+      <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.85fr_1fr]">
         <Reveal className="lg:sticky lg:top-28 lg:h-max">
           <p className="text-sm font-semibold text-primary">Clean intelligence</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-foreground sm:text-5xl">

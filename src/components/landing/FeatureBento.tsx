@@ -3,8 +3,11 @@ import { Reveal } from "./Reveal";
 
 export function FeatureBento() {
   return (
-    <section id="features" className="px-4 py-20 sm:px-6 lg:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="features"
+      className="flex min-h-dvh snap-start scroll-mt-24 items-center px-4 py-20 sm:px-6 lg:py-28"
+    >
+      <div className="mx-auto w-full max-w-7xl">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-semibold text-primary">Tính năng nổi bật</p>
           <h2 className="mt-4 text-4xl font-semibold leading-tight text-foreground sm:text-5xl lg:text-6xl">

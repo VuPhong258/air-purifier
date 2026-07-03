@@ -36,6 +36,15 @@ export function AnalyticsTracker() {
 
   useEffect(() => {
     const observed = new Set<number>();
+    const scrollRoot = document.querySelector<HTMLElement>(
+      "[data-scroll-container]",
+    );
+
+    if (!scrollRoot) {
+      return;
+    }
+
+    const root = scrollRoot;
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -53,7 +62,7 @@ export function AnalyticsTracker() {
           }
         }
       },
-      { threshold: 0.01 },
+      { root, threshold: 0.01 },
     );
 
     const sentinels = scrollDepths.map((depth) => {
@@ -62,16 +71,31 @@ export function AnalyticsTracker() {
       marker.setAttribute("aria-hidden", "true");
       marker.style.position = "absolute";
       marker.style.left = "0";
-      marker.style.top = `${depth}%`;
       marker.style.width = "1px";
       marker.style.height = "1px";
       marker.style.pointerEvents = "none";
-      document.body.appendChild(marker);
+      root.appendChild(marker);
       observer.observe(marker);
       return marker;
     });
 
+    function positionSentinels() {
+      const trackHeight = Math.max(
+        root.scrollHeight - root.clientHeight,
+        root.clientHeight,
+      );
+
+      sentinels.forEach((sentinel) => {
+        const depth = Number(sentinel.dataset.scrollDepth);
+        sentinel.style.top = `${Math.round((trackHeight * depth) / 100)}px`;
+      });
+    }
+
+    positionSentinels();
+    window.addEventListener("resize", positionSentinels);
+
     return () => {
+      window.removeEventListener("resize", positionSentinels);
       observer.disconnect();
       sentinels.forEach((sentinel) => sentinel.remove());
     };

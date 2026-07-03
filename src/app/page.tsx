@@ -11,15 +11,18 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="w-full overflow-x-hidden">
+      <main
+        data-scroll-container
+        className="relative h-dvh w-full snap-y snap-proximity overflow-y-auto overflow-x-hidden scroll-smooth"
+      >
         <Hero />
         <FeatureBento />
         <TechnologyStory />
         <SpecsSection />
         <NewsletterSection />
+        <Footer />
       </main>
       <ChatWidget />
-      <Footer />
     </>
   );
 }
